@@ -41,7 +41,7 @@ code-tools: true
 ```{r}
 #| label: data_ready
 #| results: hide
-#| include: false
+#| warning: false
 
 pkg_v <- c("tidyverse", "tidytext", "readxl", "kableExtra", 
            "multilinguer", "RcppMeCab", "KoNLP", "lubridate", 
@@ -152,12 +152,6 @@ plat_tk %>%
 ```
 
 > 무신사보다 **신세계, 백화점, 고객, 서비스** 등 오프라인 키워드가 두드러짐. 특히 고관여 상품인 **명품**이 현저히 많이 언급되고 있었음.
-
-::: {layout-ncol="2"}
-![무신사 총빈도](tmm_project_files/figure-html/musinsa_all-1.png)
-
-![패션 플랫폼 총빈도](tmm_project_files/figure-html/plat_all-1.png)
-:::
 
 ### 3. 상대빈도
 

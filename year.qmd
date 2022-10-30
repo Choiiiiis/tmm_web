@@ -41,7 +41,7 @@ code-tools: true
 ```{r}
 #| label: data_ready
 #| results: hide
-#| include: false
+#| warning: false
 
 pkg_v <- c("tidyverse", "tidytext", "readxl", "kableExtra", 
            "multilinguer", "RcppMeCab", "KoNLP", "lubridate", 
