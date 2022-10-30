@@ -1,0 +1,679 @@
+---
+title: "Brand"
+author: 언론홍보학과 2021202027 최성진
+date: 2022-10-05
+code-fold: true
+code-tools: true
+---
+
+### 분석 이유
+
+> **무신사**는 국내 최대 온라인 의류 아울렛 플랫폼으로 최근 유명 모델 기용, 대기업과 협업, 오프라인 스토어 런칭 등 공격적 행보를 보이고 있다. COVID-19 팬데믹 이후 *비대면 온라인 시장*이 활성화 된 시점에서 다른 패션 플랫폼 대비 무신사가 갖는 **차별점**과 앞으로의 **전략**을 분석, 제안하고자 한다.
+
+### 목차
+
+1.  자료 수집
+    a)  빅카인즈 데이터셋 수집
+2.  자료 분석
+    a)  총빈도 / 무신사
+    b)  총빈도 / 패션 플랫폼
+3.  상대빈도
+4.  감정 분석
+    a)  감정 분석 / 무신사
+    b)  감정 분석 / 패션 플랫폼
+5.  긍정어 부정어 분석
+    a)  긍정어 부정어 분석 / 무신사
+    b)  긍정어 부정어 분석 / 패션 플랫폼
+6.  토픽 모델링
+    a)  토픽 모델링 / 무신사
+    b)  토픽 모델링 / 패션 플랫폼
+7.  관련 보도 상위 주제어
+    a)  관련 보도 상위 주제어 / 무신사
+    b)  관련 보도 상위 주제어 / 패션 플랫폼
+8.  결론
+    a)  차별점
+    b)  전략
+
+### 1. 자료 수집
+
+##### a. 빅카인즈 데이터셋 수집
+
+```{r}
+#| label: data_ready
+#| results: hide
+#| include: false
+
+pkg_v <- c("tidyverse", "tidytext", "readxl", "kableExtra", 
+           "multilinguer", "RcppMeCab", "KoNLP", "lubridate", 
+           "tidylo", "stm", "reshape2", "dplyr", "ggplot2", 
+           "stringr", "rvest", "wordcloud", "gt")
+
+# 패키지 설치 시 사용
+#( pkg_v_installed <- pkg_v %in% installed.packages()[,"Package"] )
+
+#( new_pkg <- pkg_v[!pkg_v_installed] )
+
+#if(length(new_pkg)) install.packages(new_pkg)
+
+lapply(pkg_v, require, ch = T)
+
+musinsa_df <- 
+readxl::read_excel("data/NewsResult_20210927-20220927_musinsa.xlsx") %>% 
+  select(일자, 제목, 본문, cat = `통합 분류1`) 
+
+plat_df <- 
+readxl::read_excel("data/NewsResult_20210927-20220927_plat.xlsx") %>% 
+  select(일자, 제목, 본문, cat = `통합 분류1`) 
+
+```
+
+> 2021.09.27 - 2022.09.27 무신사 2,056건, 패션 플랫폼 1,330건 확보.
+
+### 2. 자료 분석
+
+##### a. 총빈도 / 무신사
+
+```{r}
+#| label: musinsa_all
+#| echo: true
+#| warning: false
+
+# "무신사"가 "무신 + 사"로 반영되어 사전에 "무신사" 추가
+#buildDictionary(ext_dic = c('sejong', 'woorimalsam'),
+#                user_dic = data.frame(term="역직구", tag='ncn'),
+#                category_dic_nms=c('brand'))
+
+musinsa2_df <- 
+musinsa_df %>% 
+  distinct(제목, .keep_all = T) %>% 
+  mutate(ID = factor(row_number())) %>% 
+  mutate(label = "0") %>%
+  unite(제목, 본문, col = "text", sep = " ") %>% 
+  mutate(text = str_squish(text))
+
+musinsa_tk <- musinsa2_df %>% 
+  mutate(text = str_remove_all(text, "[^(\\w+|\\s)]")) %>%  
+  unnest_tokens(word, text, token = extractNoun, drop = F) %>%
+#  separate(word, c("word", "pos"), sep = "/") %>% 
+#  filter(pos == "nng") %>% 
+  count(word, sort = T)
+
+musinsa_tk <- 
+musinsa_tk %>% 
+  filter(!word %in% c("무신사", "MUSINSA", "기자")) %>% 
+  filter(str_detect(word, "[:alpha:]+"))
+
+musinsa_tk %>%
+  filter(str_length(word) > 1) %>%
+  slice_max(n, n = 15) %>% 
+  mutate(word = reorder(word, n)) %>% 
+  ggplot(aes(word, n)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "무신사 총빈도")
+
+```
+
+> 기업과 가장 관련있는 **패션, 플랫폼, 온라인**이 상위 키워드 위치. 서울 지역 오프라인 샵 개설에 따른 **서울, 투자** 키워드가 눈에 띄며, 최근 진출한 **명품**에 대한 기사는 다소 부족함.
+
+##### b. 총빈도 / 패션 플랫폼
+
+```{r}
+#| label: plat_all
+#| echo: true
+#| warning: false
+
+plat2_df <- 
+plat_df %>% 
+  distinct(제목, .keep_all = T) %>% 
+  mutate(ID = factor(row_number())) %>% 
+  mutate(label = "1") %>%
+  unite(제목, 본문, col = "text", sep = " ") %>% 
+  mutate(text = str_squish(text))
+
+plat_tk <- plat2_df %>% 
+  mutate(text = str_remove_all(text, "[^(\\w+|\\s)]")) %>%  
+  unnest_tokens(word, text, token = extractNoun, drop = F) %>%
+  count(word, sort = T)
+
+plat_tk <- 
+plat_tk %>% 
+  filter(!word %in% c("기자", "패션", "플랫폼")) %>% 
+  filter(str_detect(word, "[:alpha:]+"))
+
+plat_tk %>%
+  filter(str_length(word) > 1) %>%
+  slice_max(n, n = 15) %>% 
+  mutate(word = reorder(word, n)) %>% 
+  ggplot(aes(word, n)) +
+  geom_col() +
+  coord_flip() +
+    labs(title = "패션 플랫폼 총빈도")
+```
+
+> 무신사보다 **신세계, 백화점, 고객, 서비스** 등 오프라인 키워드가 두드러짐. 특히 고관여 상품인 **명품**이 현저히 많이 언급되고 있었음.
+
+::: {layout-ncol="2"}
+![무신사 총빈도](tmm_project_files/figure-html/musinsa_all-1.png)
+
+![패션 플랫폼 총빈도](tmm_project_files/figure-html/plat_all-1.png)
+:::
+
+### 3. 상대빈도
+
+```{r}
+#| label: vs
+#| echo: true
+#| warning: false
+
+vs_df <- rbind(musinsa2_df, plat2_df)
+
+set.seed(5)
+
+vsvs_df <- 
+  vs_df[-c(1, 3)] %>% 
+  relocate(c(ID, text)) %>%
+  group_by(label) %>% 
+  sample_n(size = 1300)
+
+rate_odds_df <- 
+vsvs_df %>% 
+  unnest_tokens(word, text, token = extractNoun) %>% 
+#  separate(word, c("word", "pos"), sep = "/") %>% 
+#  filter(pos == "nng") %>% 
+  count(word) %>% 
+  pivot_wider(names_from = label,
+              values_from = n, 
+              values_fill = list(n = 0)) %>% 
+  rename(posi = `1`, nega = `0`) %>% 
+  mutate(odds_posi = ((posi+1)/sum(posi+1)),
+         odds_nega = ((nega+1)/sum(nega+1))) %>% 
+  mutate(posi_odds_ratio = (odds_posi / odds_nega)) %>% 
+  filter(rank(posi_odds_ratio) <= 20 | rank(-posi_odds_ratio) <= 20) %>%   arrange(-posi_odds_ratio)
+
+rate_log_df <- 
+vsvs_df %>% 
+  unnest_tokens(word, text, token = extractNoun) %>% 
+#  separate(word, c("word", "pos"), sep = "/") %>% 
+#  filter(pos == "nng") %>% 
+  count(word) %>% 
+  pivot_wider(names_from = label,
+              values_from = n, 
+              values_fill = list(n = 0)) %>% 
+  rename(posi = `1`, nega = `0`) %>% 
+  mutate(odds_posi = ((posi+1)/sum(posi+1)),
+         odds_nega = ((nega+1)/sum(nega+1))) %>% 
+  mutate(log_odds_ratio = log(odds_posi / odds_nega)) 
+
+weighted_log_odds_df <- 
+vsvs_df %>% 
+  unnest_tokens(word, text, token = extractNoun) %>% 
+#  separate(word, c("word", "pos"), sep = "/") %>% 
+#  filter(pos == "nng") %>% 
+  filter(str_length(word) > 1) %>%
+  filter(word != "무신사") %>% 
+  filter(word != "fn") %>% 
+  filter(word != "기자") %>% 
+  count(word) %>% 
+  bind_log_odds(set = label,
+                feature = word,
+                n = n) %>% 
+  arrange(-log_odds_weighted)
+
+weighted_log_odds_df %>%
+  group_by(label = ifelse(label > 0, "패션 플랫폼", "무신사")) %>%
+  slice_max(abs(log_odds_weighted), n = 10) %>%
+  ggplot(aes(x = log_odds_weighted,
+             y = reorder(word, log_odds_weighted),
+             fill = label)) +
+  geom_col(show.legend = F) +
+  facet_wrap(~label, scale = "free")
+
+```
+
+> 무신사는 자사에 관련된 **스탠다드, 유아인, 유니콘** 등이 자주 언급되었으며, 패션 플랫폼은 **추석, 백화점, 명품** 등 오프라인 중심인 모습을 확인할 수 있었음.
+
+### 4. 감정 분석
+
+##### a. 감정 분석 / 무신사
+
+```{r}
+#| label: musinsa_senti
+#| echo: true
+#| warning: false
+
+# "knusenti" 설치 코드
+#url_v <- "https://github.com/park1200656/KnuSentiLex/archive/refs/heads/master.zip"
+
+#dest_v <- "data/knusenti.zip"
+
+#download.file(url = url_v, 
+#              destfile = dest_v,
+#              mode = "wb")
+
+#unzip("knusenti.zip", exdir = "data")
+
+senti_name_v <- list.files("data/KnuSentiLex-master/.")[9]
+
+senti_dic_df <- read_tsv(str_c("data/KnuSentiLex-master/", senti_name_v), col_names = F)
+
+senti_dic_df <- senti_dic_df %>% rename(word = X1, sScore = X2)
+
+knu_dic_df <- senti_dic_df %>% 
+  filter(!is.na(sScore))
+
+musinsa_senti_df <- musinsa2_df %>% 
+  unnest_tokens(word, text, token = extractNoun) %>% 
+  inner_join(knu_dic_df) %>% 
+  count(word, sScore, sort = T) %>% 
+  filter(str_length(word) > 1) %>% 
+  filter(!word %in% c("대상")) %>% 
+  mutate(word = reorder(word, n)) %>% 
+  slice_head(n = 20)
+
+musinsa_senti_df %>% 
+  ggplot() + geom_col(aes(n, word, fill = sScore), show.legend = F) +
+    labs(title = "무신사 감정빈도 분석")
+
+```
+
+> 랭킹 시스템을 메인에 배치하고 있기에 **인기** 상품에 대한 키워드가 가장 많이 나왔으며, 자체 프로모션을 지속적으로 진행하고 있어 **할인, 이벤트, 혜택**에 대한 언급이 자주 이루어짐. 다만 불편한 UI에 대한 **개선**과 가품 논란에 따른 **부담** 키워드도 자주 언급됨.
+
+##### b. 감정 분석 / 패션 플랫폼
+
+```{r}
+#| label: plat_senti
+#| echo: true
+#| warning: false
+
+plat_senti_df <- plat2_df %>% 
+  unnest_tokens(word, text, token = extractNoun) %>% 
+  inner_join(knu_dic_df) %>% 
+  count(word, sScore, sort = T) %>% 
+  filter(str_length(word) > 1) %>% 
+  filter(!word %in% c("대상")) %>% 
+  mutate(word = reorder(word, n)) %>% 
+  slice_head(n = 20)
+
+plat_senti_df %>% 
+  ggplot() + geom_col(aes(n, word, fill = sScore), show.legend = F) +
+    labs(title = "패션 플랫폼 감정빈도 분석",)
+
+```
+
+> 쇼핑에 관련된 만큼 **할인, 인기, 혜택** 키워드가 상위를 차지하고 있음. **우수, 만족, 고급** 등 고가품과 서비스 관련 언급이 자주 이뤄지는게 무신사와 대비됨.
+
+### 5. 긍정어 부정어 분석
+
+##### a. 긍정어 부정어 분석 / 무신사
+
+```{r}
+#| label: musinsa_pone
+#| echo: true
+#| warning: false
+
+musinsa2_df %>% 
+  unnest_tokens(word, text) %>% 
+  left_join(knu_dic_df) %>% 
+  mutate(sScore = ifelse(sScore >= 1, "긍정",
+                         ifelse(sScore <= -1, "부정", "중립"))) %>% 
+  count(sScore) %>%
+  gt() %>%
+  tab_header(title = "무신사",
+             subtitle = "긍정어 부정어 점수")
+
+# 워드클라우드
+musinsa2_df %>% 
+  unnest_tokens(word, text) %>% 
+  inner_join(knu_dic_df) %>% 
+  mutate(emotion = ifelse(sScore > 0, "긍정", ifelse(sScore < 0, "부정", "중립"))) %>% 
+  filter(emotion != "중립") %>% 
+  count(word, emotion, sort = T) %>% 
+  filter(str_length(word) > 1) %>% 
+  filter(!word %in% c("대상")) %>% 
+  reshape2::acast(word ~ emotion, value.var = "n", fill = 0) %>% 
+  comparison.cloud(colors = c("blue", "red"), max.words = 50)
+
+musinsa2_df %>%   
+  unnest_tokens(word, text, token = extractNoun) %>% 
+  inner_join(knu_dic_df) %>% 
+  mutate(emotion = ifelse(sScore > 0, "긍정", ifelse(sScore < 0, "부정", "중립"))) %>%
+  mutate(label = ifelse(sScore > 0, "1", ifelse(sScore < 0, "0", "2"))) %>%
+  filter(label != "중립") %>%
+  count(word, emotion, label, sort = T) %>%
+  filter(str_length(word) > 1) %>%
+  filter(!word %in% c("대상")) %>% 
+  group_by(label = ifelse(label > 0, "긍정", "부정")) %>%
+  slice_head(n = 15) %>%
+  ggplot(aes(x = n,
+             y = reorder(word, n), fill = label)) +
+  geom_col(show.legend = F) +
+  facet_wrap(~label, scale = "free") +
+  labs(title = "무신사 긍정어 부정어")
+
+```
+
+> 4:1 로 긍정어 점수가 높은 편. 프로모션과 관련된 **할인, 이벤트, 혜택**과 같은 키워드가 긍정어로 분석되었으며, 가품 논란에 따른 **부담, 부진, 위축, 가짜** 키워드가 부정어로 분석됨.
+
+##### b. 긍정어 부정어 분석 / 패션 플랫폼
+
+```{r}
+#| label: plat_pone
+#| echo: true
+#| warning: false
+
+plat2_df %>% 
+  unnest_tokens(word, text) %>% 
+  left_join(knu_dic_df) %>% 
+  mutate(sScore = ifelse(sScore >= 1, "긍정",
+                         ifelse(sScore <= -1, "부정", "중립"))) %>% 
+  count(sScore) %>%
+  gt() %>%
+  tab_header(title = "패션 플랫폼",
+             subtitle = "긍정어 부정어 점수")
+
+# 워드클라우드
+plat2_df %>% 
+  unnest_tokens(word, text) %>% 
+  inner_join(knu_dic_df) %>% 
+  mutate(emotion = ifelse(sScore > 0, "긍정", ifelse(sScore < 0, "부정", "중립"))) %>% 
+  filter(emotion != "중립") %>% 
+  count(word, emotion, sort = T) %>% 
+  filter(str_length(word) > 1) %>% 
+  filter(!word %in% c("대상")) %>% 
+  reshape2::acast(word ~ emotion, value.var = "n", fill = 0) %>% 
+  comparison.cloud(colors = c("blue", "red"), max.words = 50)
+
+plat2_df %>%   
+  unnest_tokens(word, text, token = extractNoun) %>% 
+  inner_join(knu_dic_df) %>% 
+  mutate(emotion = ifelse(sScore > 0, "긍정", ifelse(sScore < 0, "부정", "중립"))) %>%
+  mutate(label = ifelse(sScore > 0, "1", ifelse(sScore < 0, "0", "2"))) %>%
+  filter(label != "중립") %>% 
+  count(word, emotion, label, sort = T) %>%
+  filter(str_length(word) > 1) %>%
+  filter(!word %in% c("대상")) %>% 
+  group_by(label = ifelse(label > 0, "긍정", "부정")) %>%
+  slice_head(n = 15) %>%
+  ggplot(aes(x = n,
+             y = reorder(word, n), fill = label)) +
+  geom_col(show.legend = F) +
+  facet_wrap(~label, scale = "free") +
+  labs(title = "패션 플랫폼 긍정어 부정어")
+
+```
+
+> 6:1 로 긍정어 점수가 높은 편. 프로모션에 이어 **우수, 만족, 편안, 고급**과 같이 서비스와 품질에 대한 키워드가 긍정어로 분석되었으며, 오프라인 시장 축소에 따른 **걱정, 위축**과 **오염, 불량**과 같이 제품에 대한 불만 사항이 부정어로 분석됨.
+
+### 6. 토픽 모델링
+
+##### a. 주제별 단어 확률 분포 / 무신사
+
+```{r}
+#| label: musinsa_topic
+#| echo: true
+#| warning: false
+
+musinsa_topic_tk <- musinsa2_df %>% 
+  mutate(text = str_remove_all(text, "[^(\\w+|\\s)]")) %>%  
+  unnest_tokens(word, text, token = extractNoun, drop = F)
+
+musinsa_topic_tk <- 
+musinsa_topic_tk %>% 
+  filter(!word %in% c("무신사", "MUSINSA", "기자", "대상",
+                      "투데이", "글로벌", "지난달", "지난해",
+                      "가운데")) %>% 
+  filter(str_detect(word, "[:alpha:]+"))
+
+musinsa_combined_df <-
+  musinsa_topic_tk %>%
+  group_by(ID) %>%
+  summarise(text2 = str_flatten(word, " ")) %>%
+  ungroup() %>% 
+  inner_join(musinsa2_df, by = "ID")
+
+processed <- 
+  musinsa2_df %>% textProcessor(
+    documents = musinsa_combined_df$text2,
+    metadata = .,
+    )
+
+out <-
+  prepDocuments(processed$documents,
+                processed$vocab,
+                processed$meta, 
+                lower.thresh = 1)
+
+docs <- out$documents
+vocab <- out$vocab
+meta <- out$meta
+
+topicN <- c(3, 10)
+
+#storage <- searchK(out$documents, out$vocab, K = topicN)
+
+musinsa_stm_fit <-
+  stm(
+    documents = docs,
+    vocab = vocab,
+    K = 6,
+    data = meta,
+    init.type = "Spectral",
+    seed = 25,
+    verbose = F
+  )
+
+musinsa_td_beta <- musinsa_stm_fit %>% tidy(matrix = 'beta') 
+
+#labelTopics(musinsa_stm_fit)
+
+musinsa_topic_name <- tibble(topic = 1:6,
+                     name = c("1. 고객 서비스",
+                              "2. 자사 프로모션",
+                              "3. 비대면 시장",
+                              "4. 기업 투자",
+                              "5. 차별화 전략",
+                              "6. 사업 다각화") )
+
+musinsa_term_topic_name <- 
+musinsa_td_beta %>% 
+  group_by(topic) %>% 
+  slice_max(beta, n = 7) %>% 
+  left_join(musinsa_topic_name, by = "topic")
+
+musinsa_term_topic_name %>% 
+  ggplot(aes(x = beta, 
+             y = reorder_within(term, beta, name),
+             fill = name)) +
+  geom_col(show.legend = F) +
+  facet_wrap(~name, scales = "free") +
+  scale_y_reordered() +
+  labs(x = expression("단어 확률분포: "~beta), y = NULL,
+       title = "주제별 단어 확률 분포",
+       subtitle = "주제별로 다른 단어들로 군집") +
+  theme(plot.title = element_text(size = 20))
+
+```
+
+> **자사 프로모션**과 **차별화 전략**에서 군집화가 잘 이루어짐.
+
+##### b. 주제별 단어 확률 분포 / 패션 플랫폼
+
+```{r}
+#| label: plat_topic
+#| echo: true
+#| warning: false
+
+plat_topic_tk <- plat2_df %>% 
+  mutate(text = str_remove_all(text, "[^(\\w+|\\s)]")) %>%  
+  unnest_tokens(word, text, token = extractNoun, drop = F)
+
+plat_topic_tk <- 
+plat_topic_tk %>% 
+  filter(!word %in% c("기자", "패션", "플랫폼", "대상", "경제뉴스",
+                      "키워드", "지난해", "투데이")) %>% 
+  filter(str_detect(word, "[:alpha:]+"))
+
+plat_combined_df <-
+  plat_topic_tk %>%
+  group_by(ID) %>%
+  summarise(text2 = str_flatten(word, " ")) %>%
+  ungroup() %>% 
+  inner_join(plat2_df, by = "ID")
+
+processed <- 
+  plat2_df %>% textProcessor(
+    documents = plat_combined_df$text2,
+    metadata = .)
+
+out <-
+  prepDocuments(processed$documents,
+                processed$vocab,
+                processed$meta, 
+                lower.thresh = 1)
+
+docs <- out$documents
+vocab <- out$vocab
+meta <- out$meta
+
+topicN <- c(3, 10)
+
+#storage <- searchK(out$documents, out$vocab, K = topicN)
+
+plat_stm_fit <-
+  stm(
+    documents = docs,
+    vocab = vocab,
+    K = 6,
+    data = meta,
+    init.type = "Spectral",
+    seed = 25,
+    verbose = F
+  )
+
+plat_td_beta <- plat_stm_fit %>% tidy(matrix = 'beta') 
+
+#labelTopics(plat_stm_fit)
+
+plat_topic_name <- tibble(topic = 1:6,
+                     name = c("1. 플랫폼 유통",
+                              "2. 패션 트렌드",
+                              "3. 온라인 경쟁",
+                              "4. 오프라인 차별화",
+                              "5. 디지털 전략",
+                              "6. 기업 프로모션") )
+
+plat_term_topic_name <- 
+plat_td_beta %>% 
+  group_by(topic) %>% 
+  slice_max(beta, n = 7) %>% 
+  left_join(plat_topic_name, by = "topic")
+
+plat_term_topic_name %>% 
+  ggplot(aes(x = beta, 
+             y = reorder_within(term, beta, name),
+             fill = name)) +
+  geom_col(show.legend = F) +
+  facet_wrap(~name, scales = "free") +
+  scale_y_reordered() +
+  labs(x = expression("단어 확률분포: "~beta), y = NULL,
+       title = "주제별 단어 확률 분포",
+       subtitle = "주제별로 다른 단어들로 군집") +
+  theme(plot.title = element_text(size = 20))
+```
+
+> **패션 트렌드**와 **디지털 전략**에서 군집화가 잘 이루어짐.
+
+### 7. 관련 보도 상위 주제어
+
+##### a. 관련 보도 상위 주제어 / 무신사
+
+```{r}
+#| label: musinsa_word
+#| echo: true
+#| warning: false
+
+musinsa_td_gamma <- musinsa_stm_fit %>% tidy(matrix = "gamma") 
+
+musinsa_top_terms <- 
+musinsa_td_beta %>% 
+  group_by(topic) %>% 
+  slice_max(beta, n = 5) %>% 
+  select(topic, term) %>% 
+  summarise(terms = str_flatten(term, collapse = ", ")) 
+
+musinsa_gamma_terms <- 
+musinsa_td_gamma %>% 
+  group_by(topic) %>% 
+  summarise(gamma = mean(gamma)) %>% 
+  left_join(musinsa_top_terms, by = 'topic') %>% 
+  mutate(topic = str_c("주제", topic),
+         topic = reorder(topic, gamma))
+
+musinsa_gamma_terms %>% 
+  ggplot(aes(x = gamma, y = topic, fill = topic)) +
+  geom_col(show.legend = F) +
+  geom_text(aes(label = round(gamma, 2)),
+            hjust = 1.4) +
+  geom_text(aes(label = terms), 
+            hjust = -0.05) +
+  scale_x_continuous(expand = c(0, 0),
+                     limit = c(0, 1)) +
+  labs(x = expression("문서 확률분포"~(gamma)), y = NULL,
+       title = "무신사 관련 보도 상위 주제어",
+       subtitle = "주제별로 기여도가 높은 단어 중심") +
+  theme(plot.title = element_text(size = 20))
+```
+
+> 무신사에 입점한 **브랜드**와 자사몰에서 판매중인 **한정판**에 대한 기사가 다수임. 펜데믹으로 인한 비대면 시장 활성화에 따라 **온라인, 코로나**와 같은 기사와 자사 브랜드에 대한 무신사 **스탠다드, 스토어**에 대한 언급이 잘 이루어지고 있음.
+
+##### b. 관련 보도 상위 주제어 / 패션 플랫폼
+
+```{r}
+#| label: plat_word
+#| echo: true
+#| warning: false
+
+plat_td_gamma <- plat_stm_fit %>% tidy(matrix = "gamma") 
+
+plat_top_terms <- 
+plat_td_beta %>% 
+  group_by(topic) %>% 
+  slice_max(beta, n = 5) %>% 
+  select(topic, term) %>% 
+  summarise(terms = str_flatten(term, collapse = ", ")) 
+
+plat_gamma_terms <- 
+plat_td_gamma %>% 
+  group_by(topic) %>% 
+  summarise(gamma = mean(gamma)) %>% 
+  left_join(plat_top_terms, by = 'topic') %>% 
+  mutate(topic = str_c("주제", topic),
+         topic = reorder(topic, gamma))
+
+plat_gamma_terms %>% 
+  ggplot(aes(x = gamma, y = topic, fill = topic)) +
+  geom_col(show.legend = F) +
+  geom_text(aes(label = round(gamma, 2)),
+            hjust = 1.4) +
+  geom_text(aes(label = terms), 
+            hjust = -0.05) +
+  scale_x_continuous(expand = c(0, 0),
+                     limit = c(0, 1)) +
+  labs(x = expression("문서 확률분포"~(gamma)), y = NULL,
+       title = "패션 플랫폼 관련 보도 상위 주제어",
+       subtitle = "주제별로 기여도가 높은 단어 중심") +
+  theme(plot.title = element_text(size = 20))
+```
+
+> 업계의 비대면 시장 진출에 따라 **온라인, 거래액**과 같은 기사가 다수 있었음. **럭셔리, 디자이너**와 같이 사치품 관련 기사와 온라인 프로모션 수단인 **메타버스, nft**와 같은 기사도 자주 발행되며 기존 패션 플랫폼 이미지를 탈피해 소비자에게 신선한 모습을 보이고자 함을 확인할 수 있었음.
+
+### 8. 결론
+
+##### a. 차별점
+
+> **무신사**는 다양한 패션 브랜드가 입점해 있는 최대 규모의 온라인 아울렛이라는 점에 차별점이 있음. 또한 시대 트렌드를 재빨리 분석해 판권 취득을 통한 **단독 출시**와 **브랜드 콜라보 작업**을 통해 시장을 선점하고 있는 모습이 기존 패션 플랫폼과 차이점임.
+
+##### b. 전략
+
+> 온라인 시장은 선점했지만, **고가품**에 대해서는 소비자의 신뢰를 얻지 못하고 있음. 플랫폼의 크기는 유지하되 **UI**를 개선해 접근성을 높이고, 플래그십 스토어에 투자해 **브랜드 고급화 전략**을 취하는 것이 바람직해 보임.

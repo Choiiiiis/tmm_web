@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: MUSINSA
+  sidebar:
+    style: "floating"
+    search: true
+    border: true
+    background: light
+    contents:
+      - section: "Home"
+        contents:
+          - index.qmd
+      - section: "Report"
+        contents:
+          - brand.qmd
+          - year.qmd
+          - future.qmd
+          - risk.qmd
+      - section: "Final Report"
+        contents:
+          - report.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
