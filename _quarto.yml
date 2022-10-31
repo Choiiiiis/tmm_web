@@ -5,7 +5,7 @@ project:
 website:
   title: MUSINSA
   sidebar:
-    style: "floating"
+    style: "docked"
     search: true
     border: true
     background: light
