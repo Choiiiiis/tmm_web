@@ -13,12 +13,12 @@ format:
 ## 목차
 
 - Get in bed
-- Count sheep
+- Count sheep1
 
 ## 기업 소개
 
 - Turn off alarm
-- Get out of bed
+- Get out of bed2
 
 ## 분석 목적
 
