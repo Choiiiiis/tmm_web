@@ -1,5 +1,6 @@
 ---
 title: "Report"
+subtitle: "MUSINSA 기업 분석"
 author: 언론홍보학과 2021202027 최성진
 date: 2022-12-07
 format:
@@ -12,13 +13,22 @@ format:
 
 ## 목차
 
-- Get in bed
-- Count sheep12
+1.  기업 소개
+2.  분석 목적
+3.  데이터셋 수집
+4.  데이터 분석
+5.  결론
 
-## 기업 소개
+## 기업 소개{.smaller}
+|
+|
+![](docs/musinsa_logo.jpg){fig-align="center"}
 
-- Turn off alarm
-- Get out of bed2
+
+
+- 국내 최대 의류 아울렛 플랫폼
+- 21년 기준 연매출 4,667억 원, 영업이익 542억 원
+- 10번 째 유니콘 기업 선정
 
 ## 분석 목적
 
