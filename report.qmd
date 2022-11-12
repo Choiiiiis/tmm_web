@@ -2,8 +2,40 @@
 title: "Report"
 author: 언론홍보학과 2021202027 최성진
 date: 2022-12-07
-code-fold: true
-code-tools: true
+format:
+  revealjs: 
+    theme: serif
+    transition: slide
+    background-transition: fade
+    footer: "[2022-2 TMM 기업 분석 프로젝트](https://choiiiiis.github.io/tmm_web/)"
 ---
 
-test test...
+## 목차
+
+- Get in bed
+- Count sheep
+
+## 기업 소개
+
+- Turn off alarm
+- Get out of bed
+
+## 분석 목적
+
+- Get in bed
+- Count sheep
+
+## 데이터셋 수집 방법
+
+- Get in bed
+- Count sheep
+
+## 분석 결과
+
+- Get in bed
+- Count sheep
+
+## 결론
+
+- Get in bed
+- Count sheep
