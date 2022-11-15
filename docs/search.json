@@ -81,14 +81,14 @@
     "href": "report.html#분석-목적",
     "title": "Report",
     "section": "분석 목적",
-    "text": "분석 목적\n\nGet in bed\nCount sheep3"
+    "text": "분석 목적\n\n기업 분석을 통해 무신사가 갖는 독보적 BI를 확인하고, 경쟁사와 차별점과 패션 업계 트렌드를 중심으로 나아가야 할 방향과 전략을 제시하고자 함.\n\n\n\n\n\nflowchart LR\n  A(자료 수집) --> B(자료 분석)\n  B --> C{결과 도출}\n  C --> D(전략 제안)\n  C --> E(위기 관리)"
   },
   {
     "objectID": "report.html#데이터셋-수집-방법",
     "href": "report.html#데이터셋-수집-방법",
     "title": "Report",
     "section": "데이터셋 수집 방법",
-    "text": "데이터셋 수집 방법\n\nGet in bed\nCount sheep4"
+    "text": "데이터셋 수집 방법\n\n한국언론진흥재단 빅카인즈\nCount sheep4"
   },
   {
     "objectID": "report.html#분석-결과",
@@ -102,6 +102,13 @@
     "href": "report.html#결론",
     "title": "Report",
     "section": "결론",
-    "text": "결론\n\nGet in bed\nCount sheep\n\n\n\n2022-2 TMM 기업 분석 프로젝트"
+    "text": "결론\n\nGet in bed\nCount sheep\n\n\n\nHome"
+  },
+  {
+    "objectID": "report.html#주요-코드-수정-내용",
+    "href": "report.html#주요-코드-수정-내용",
+    "title": "Report",
+    "section": "주요 코드 수정 내용",
+    "text": "주요 코드 수정 내용\n\n사전에 무신사 추가"
   }
 ]

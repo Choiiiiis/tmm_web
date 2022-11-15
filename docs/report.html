@@ -319,6 +319,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -346,7 +349,7 @@
 <p><br>
 </p>
 
-<img data-src="docs/musinsa_logo.jpg" class="r-stretch quarto-figure-center"><ul>
+<img data-src="docs/musinsa_logo.jpg" width="450" class="r-stretch"><ul>
 <li>국내 최대 의류 아울렛 플랫폼</li>
 <li>21년 기준 연매출 4,667억 원, 영업이익 542억 원</li>
 <li>10번 째 유니콘 기업 선정</li>
@@ -355,15 +358,37 @@
 <section id="분석-목적" class="slide level2">
 <h2>분석 목적</h2>
 <ul>
-<li>Get in bed</li>
-<li>Count sheep3</li>
+<li>기업 분석을 통해 무신사가 갖는 독보적 BI를 확인하고, 경쟁사와 차별점과 패션 업계 트렌드를 중심으로 나아가야 할 방향과 전략을 제시하고자 함.</li>
 </ul>
+<div class="cell" data-reveal="true" data-fig-width="8">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+  A(자료 수집) --&gt; B(자료 분석)
+  B --&gt; C{결과 도출}
+  C --&gt; D(전략 제안)
+  C --&gt; E(위기 관리)
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="데이터셋-수집-방법" class="slide level2">
 <h2>데이터셋 수집 방법</h2>
 <ul>
-<li>Get in bed</li>
+<li>한국언론진흥재단 빅카인즈</li>
 <li>Count sheep4</li>
+</ul>
+</section>
+<section id="주요-코드-수정-내용" class="slide level2">
+<h2>주요 코드 수정 내용</h2>
+<ul>
+<li>사전에 무신사 추가</li>
 </ul>
 </section>
 <section id="분석-결과" class="slide level2">
@@ -381,7 +406,7 @@
 </ul>
 
 <div class="footer footer-default">
-<p><a href="https://choiiiiis.github.io/tmm_web/">2022-2 TMM 기업 분석 프로젝트</a></p>
+<p><a href="https://choiiiiis.github.io/tmm_web/">Home</a></p>
 </div>
 </section>
     </div>
