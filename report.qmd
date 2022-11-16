@@ -119,7 +119,7 @@ musinsa_topic_tk %>%
 
 ## 데이터 분석
 
-- testtest
+- testtesttest
 
 # 분석 결과
 
