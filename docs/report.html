@@ -29,6 +29,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -329,13 +393,15 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Report</h1>
-  <p class="subtitle">MUSINSA 기업 분석</p>
+  <p class="subtitle"><strong>MUSINSA 기업 분석</strong></p>
   <p class="author">언론홍보학과 2021202027 최성진</p>
   <p class="date">2022-12-07</p>
 </section>
 
 <section id="목차" class="slide level2">
 <h2>목차</h2>
+<p><br>
+</p>
 <ol type="1">
 <li>기업 소개</li>
 <li>분석 목적</li>
@@ -344,7 +410,12 @@
 <li>결론</li>
 </ol>
 </section>
-<section id="기업-소개" class="slide level2 smaller">
+<section>
+<section id="기업-소개" class="title-slide slide level1 center">
+<h1>기업 소개</h1>
+
+</section>
+<section id="기업-소개-1" class="slide level2 smaller">
 <h2>기업 소개</h2>
 <p><br>
 </p>
@@ -356,8 +427,13 @@
 <li>21년 기준 연매출 4,667억 원, 영업이익 542억 원</li>
 <li>10번 째 유니콘 기업 선정</li>
 </ul>
+</section></section>
+<section>
+<section id="분석-목적" class="title-slide slide level1 center">
+<h1>분석 목적</h1>
+
 </section>
-<section id="분석-목적" class="slide level2">
+<section id="분석-목적-1" class="slide level2">
 <h2>분석 목적</h2>
 <p><br>
 </p>
@@ -381,45 +457,103 @@
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="데이터셋-수집-방법" class="title-slide slide level1 center">
+<h1>데이터셋 수집 방법</h1>
+
 </section>
-<section id="데이터셋-수집-방법" class="slide level2 smaller">
-<h2>데이터셋 수집 방법</h2>
-<h4 id="한국언론진흥재단-빅카인즈-기사-수집">한국언론진흥재단 빅카인즈 기사 수집</h4>
+<section id="한국언론진흥재단-빅카인즈" class="slide level2 smaller">
+<h2>한국언론진흥재단 빅카인즈</h2>
 <p><br>
 </p>
 <ul>
 <li>패션 브랜드 간 비교
 <ul>
+<li>무신사, 패션 브랜드 키워드 검색.</li>
 <li>2021.09.27 - 2022.09.27 무신사 2,056건, 패션 플랫폼 1,330건 확보.</li>
 </ul></li>
+</ul>
+<p><br>
+</p>
+<ul>
 <li>연간 비교
 <ul>
+<li>무신사 키워드 검색.</li>
 <li>2021.01.01 - 2021.10.04 간 1,413건, 2022.01.01 - 2022.10.04 간 1,597건 확보.</li>
 </ul></li>
+</ul>
+</section>
+<section id="한국언론진흥재단-빅카인즈-1" class="slide level2 smaller">
+<h2>한국언론진흥재단 빅카인즈</h2>
+<p><br>
+</p>
+<ul>
 <li>트렌드 분석
 <ul>
+<li>패션 트렌드 키워드 검색.</li>
 <li>2021.01.01 - 2021.10.12 간 1,122건, 2022.01.01 - 2022.10.12 간 1,148건 확보.</li>
 </ul></li>
+</ul>
+<p><br>
+</p>
+<ul>
 <li>위기 분석
 <ul>
+<li>무신사, 패션 브랜드, 위기, 논란 키워드 검색</li>
 <li>2021.01.01 - 2021.10.30 간 816건, 2022.01.01 - 2022.10.30 간 745건 확보.</li>
 </ul></li>
 </ul>
 </section>
-<section id="주요-코드-수정-내용" class="slide level2">
+<section id="주요-코드-수정-내용" class="slide level2 smaller">
 <h2>주요 코드 수정 내용</h2>
+<p><br>
+</p>
 <ul>
-<li>사전에 무신사 추가</li>
+<li>브랜드 명 “무신사”가 “무신 + 사”로 반영돼 사전에 “무신사” 추가.</li>
 </ul>
+<div class="sourceCode" id="cb1" data-code-line-numbers="2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>buildDictionary(ext_dic <span class="op">=</span> c(<span class="st">'sejong'</span>, <span class="st">'woorimalsam'</span>),</span>
+<span id="cb1-2"><a href="#cb1-2"></a>                user_dic <span class="op">=</span> data.frame(term<span class="op">=</span><span class="st">"무신사"</span>, tag<span class="op">=</span><span class="st">'ncn'</span>),</span>
+<span id="cb1-3"><a href="#cb1-3"></a>                category_dic_nms<span class="op">=</span>c(<span class="st">'brand'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+<ul>
+<li>무의미하게 반복되는 단어 제거.</li>
+</ul>
+<div class="sourceCode" id="cb2" data-code-line-numbers="3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>musinsa_topic_tk <span class="op">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>musinsa_topic_tk <span class="op">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="bu">filter</span>(<span class="op">!</span>word <span class="op">%</span><span class="kw">in</span><span class="op">%</span> c(<span class="st">"기자"</span>, <span class="st">"투데이"</span>, <span class="st">"가운데"</span>, <span class="st">"경제뉴스"</span>)) <span class="op">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="bu">filter</span>(str_detect(word, <span class="st">"[:alpha:]+"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="데이터-분석" class="title-slide slide level1 center">
+<h1>데이터 분석</h1>
+
 </section>
-<section id="분석-결과" class="slide level2">
+<section id="데이터-분석-1" class="slide level2">
+<h2>데이터 분석</h2>
+<ul>
+<li>testtest</li>
+</ul>
+</section></section>
+<section>
+<section id="분석-결과" class="title-slide slide level1 center">
+<h1>분석 결과</h1>
+
+</section>
+<section id="분석-결과-1" class="slide level2">
 <h2>분석 결과</h2>
 <ul>
 <li>Get in bed</li>
 <li>Count sheep</li>
 </ul>
+</section></section>
+<section>
+<section id="결론" class="title-slide slide level1 center">
+<h1>결론</h1>
+
 </section>
-<section id="결론" class="slide level2">
+<section id="결론-1" class="slide level2">
 <h2>결론</h2>
 <ul>
 <li>Get in bed</li>
@@ -429,7 +563,7 @@
 <div class="footer footer-default">
 <p><a href="https://choiiiiis.github.io/tmm_web/">Home</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

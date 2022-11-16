@@ -80,7 +80,7 @@ readxl::read_excel("data/NewsResult_20210927-20220927_plat.xlsx") %>%
 
 # "무신사"가 "무신 + 사"로 반영되어 사전에 "무신사" 추가
 #buildDictionary(ext_dic = c('sejong', 'woorimalsam'),
-#                user_dic = data.frame(term="역직구", tag='ncn'),
+#                user_dic = data.frame(term="무신사", tag='ncn'),
 #                category_dic_nms=c('brand'))
 
 musinsa2_df <- 
