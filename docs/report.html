@@ -530,11 +530,43 @@
 <h1>데이터 분석</h1>
 
 </section>
-<section id="데이터-분석-1" class="slide level2">
-<h2>데이터 분석</h2>
+<section id="swot-분석" class="slide level2 smaller">
+<h2>SWOT 분석</h2>
+<div class="cell">
+
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="report_files/figure-revealjs/musinsa_all-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="report_files/figure-revealjs/vs-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br>
+</p>
 <ul>
 <li>testtesttest</li>
 </ul>
+</section>
+<section id="swot-분석-1" class="slide level2">
+<h2>SWOT 분석</h2>
+</section>
+<section id="swot-분석-2" class="slide level2">
+<h2>SWOT 분석</h2>
+</section>
+<section id="swot-분석-3" class="slide level2">
+<h2>SWOT 분석</h2>
 </section></section>
 <section>
 <section id="결론" class="title-slide slide level1 center">
@@ -766,6 +798,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
