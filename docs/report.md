@@ -1,0 +1,183 @@
+Report
+================
+언론홍보학과 2021202027 최성진
+2022-12-07
+
+## 목차
+
+  
+
+1.  기업 소개
+2.  분석 목적
+3.  데이터셋 수집 및 정제
+4.  데이터 분석
+5.  결론
+
+# 기업 소개
+
+## 기업 소개
+
+  
+
+<div>
+
+<img src="docs/musinsa_logo.jpg" data-fig-align="center" />
+
+</div>
+
+  
+
+- 국내 최대 의류 아울렛 플랫폼
+- 21년 기준 연매출 4,667억 원, 영업이익 542억 원
+- 기업가치 약 2조 2,000억 으로 10번 째 유니콘 기업 선정
+- 유명 모델 기용, 대기업과 협업, 오프라인 스토어 런칭 등 공격적 행보
+
+## 자회사
+
+  
+
+|     브랜드      |       분류       |
+|:---------------:|:----------------:|
+| 무신사 스탠다드 |     자체 PB      |
+| 무신사 스튜디오 |    공유오피스    |
+|  무신사 테라스  |   복합문화공간   |
+| 무신사 파트너스 |    벤처 투자     |
+|    솔드아웃     | 거래 중개 플랫폼 |
+|      29CM       |     셀렉트샵     |
+|   스타일쉐어    |   패션 공유 앱   |
+
+## 경쟁사
+
+  
+
+|     브랜드      |       분류       |
+|:---------------:|:----------------:|
+|     브랜디      |   의류 플랫폼    |
+|  신세계 W컨셉   |   의류 플랫폼    |
+| 카카오 지그재그 |   의류 플랫폼    |
+|    머스트잇     |   명품 플랫폼    |
+|      발만       |   명품 플랫폼    |
+|     트렌비      |   명품 플랫폼    |
+|   네이버 크림   | 거래 중개 플랫폼 |
+
+# 분석 목적
+
+## 분석 목적
+
+  
+
+- 기업 분석을 통해 무신사가 갖는 독보적 BI를 확인하고, 경쟁사와 차별점과
+  패션 업계 트렌드를 중심으로 나아가야 할 방향과 전략을 제시하고자 함.
+
+  
+
+<img src="report_files\figure-gfm\mermaid-figure-1.png"
+style="width:8in;height:5in" />
+
+# 데이터셋 수집 및 정제
+
+## 한국언론진흥재단 빅카인즈
+
+  
+
+- 패션 브랜드 간 비교
+  - **무신사, 패션 브랜드** 키워드 검색.
+  - 2021.09.27 - 2022.09.27 무신사 2,056건, 패션 플랫폼 1,330건 확보.
+
+  
+
+- 연간 비교
+  - **무신사** 키워드 검색.
+  - 2021.01.01 - 2021.10.04 간 1,413건, 2022.01.01 - 2022.10.04 간
+    1,597건 확보.
+
+## 한국언론진흥재단 빅카인즈
+
+  
+
+- 트렌드 분석
+  - **패션 트렌드** 키워드 검색.
+  - 2021.01.01 - 2021.10.12 간 1,122건, 2022.01.01 - 2022.10.12 간
+    1,148건 확보.
+
+  
+
+- 위기 분석
+  - **무신사, 패션 브랜드, 위기, 논란** 키워드 검색
+  - 2021.01.01 - 2021.10.30 간 816건, 2022.01.01 - 2022.10.30 간 745건
+    확보.
+
+## 주요 코드 수정 내용
+
+  
+
+- 브랜드 명 “무신사”가 “무신 + 사”로 반영돼 사전에 “무신사” 추가.
+
+``` python
+buildDictionary(ext_dic = c('sejong', 'woorimalsam'),
+                user_dic = data.frame(term="무신사", tag='ncn'),
+                category_dic_nms=c('brand'))
+```
+
+  
+
+- 무의미하게 반복되는 단어 제거.
+
+``` python
+musinsa_topic_tk <- 
+musinsa_topic_tk %>% 
+  filter(!word %in% c("기자", "투데이", "가운데", "경제뉴스")) %>% 
+  filter(str_detect(word, "[:alpha:]+"))
+```
+
+# 데이터 분석
+
+## SWOT 분석
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/musinsa_all-1.png"
+data-fig.extended="false" alt="무신사 단어 총빈도" />
+<figcaption aria-hidden="true">무신사 단어 총빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/vs-1.png"
+data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
+<figcaption aria-hidden="true">무신사, 패션 브랜드 상대빈도</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> **강점**: 보유 고객 수, 자사 브랜드 **약점**: 명품 검수팀 미비
+
+## SWOT 분석
+
+## STP분석
+
+## 4P 분석
+
+# 결론
+
+## 결론
+
+- Get in bed
+- Count sheep
+
+# 감사합니다.
