@@ -33,7 +33,7 @@ format:
 
 <div>
 
-![](docs/musinsa_logo.jpg){width="70%," fig-align="center"}
+![](docs/musinsa_logo.jpg){fig-align="center" width="800"}
 
 </div>
 
@@ -45,7 +45,7 @@ format:
 -   기업가치 약 2조 2,000억 으로 10번 째 유니콘 기업 선정
 -   유명 모델 기용, 대기업과 협업, 오프라인 스토어 런칭 등 공격적 행보
 
-## 자회사 {.smaller}
+## 자회사
 
 | 
 | 
@@ -60,7 +60,7 @@ format:
 |      29CM       |     셀렉트샵     |
 |   스타일쉐어    |   패션 공유 앱   |
 
-## 경쟁사 {.smaller}
+## 경쟁사
 
 | 
 | 
@@ -77,24 +77,21 @@ format:
 
 # 분석 목적
 
-## 분석 목적{.smaller}
+## 분석 목적 {.smaller}
 
 | 
 | 
 
 -   기업 분석을 통해 무신사가 갖는 독보적 BI를 확인하고, 경쟁사와 차별점과 패션 업계 트렌드를 중심으로 나아가야 할 방향과 전략을 제시하고자 함.
 
-|
-|
+| 
+| 
 
-```{mermaid}
-%%| fig-width: 8
-flowchart LR
-  A(자료 수집) --> B(자료 분석)
-  B --> C{결과 도출}
-  C --> D(전략 제안)
-  C --> E(위기 관리)
-```
+<div>
+
+![](docs/report_files/figure-gfm/mermaid-figure-1.png){fig-align="center" width="800"}
+
+</div>
 
 # 데이터셋 수집 및 정제
 
