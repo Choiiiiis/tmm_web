@@ -1,6 +1,6 @@
 ---
 title: "Report"
-subtitle: "**MUSINSA 기업 분석**"
+subtitle: "**무신사 기업 분석**"
 author: 언론홍보학과 2021202027 최성진
 date: 2022-12-07
 format:
@@ -10,8 +10,6 @@ format:
     background-transition: fade
     footer: "[Home](https://choiiiiis.github.io/tmm_web/)"
     scrollable: true
-  gfm:
-    mermaid-format: png
 ---
 
 ## 목차
@@ -173,7 +171,54 @@ musinsa_topic_tk %>%
 ![패션 브랜드 긍정어 부정어](_site/brand_files/figure-html/plat_pone-2.png)
 :::
 
-> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심, **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면, 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드 중심으로 분석됨.
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과 **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면, 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드 중심으로 분석됨.
+
+## 위기 요인{.smaller}
+
+```{dot}
+graph G {
+  layout=neato
+  위기요인  -- 성차별;
+  위기요인 -- 혐오제스처;
+  위기요인 -- 가품;
+}
+```
+
+## 위기 요인{.smaller}
+
+- 성차별 논란
+
+::: {layout-ncol="2"}
+![무신사 감정빈도](_site/brand_files/figure-html/musinsa_senti-1.png)
+
+![패션 브랜드 긍정어 부정어](_site/brand_files/figure-html/plat_pone-2.png)
+:::
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과 **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면, 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드 중심으로 분석됨.
+
+## 위기 요인{.smaller}
+
+- 혐오 제스처 논란
+
+::: {layout-ncol="2"}
+![무신사 감정빈도](_site/brand_files/figure-html/musinsa_senti-1.png)
+
+![패션 브랜드 긍정어 부정어](_site/brand_files/figure-html/plat_pone-2.png)
+:::
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과 **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면, 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드 중심으로 분석됨.
+
+## 위기 요인{.smaller}
+
+- 가품 논란
+
+::: {layout-ncol="2"}
+![무신사 감정빈도](_site/brand_files/figure-html/musinsa_senti-1.png)
+
+![패션 브랜드 긍정어 부정어](_site/brand_files/figure-html/plat_pone-2.png)
+:::
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과 **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면, 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드 중심으로 분석됨.
 
 ## SWOT 분석 {.smaller}
 

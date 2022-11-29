@@ -21,7 +21,7 @@ Report
 
 <div>
 
-<img src="docs/musinsa_logo.jpg" data-fig-align="center" />
+<img src="docs/musinsa_logo.jpg" data-fig-align="center" width="800" />
 
 </div>
 
@@ -34,8 +34,6 @@ Report
 
 ## 자회사
 
-  
-
 |     브랜드      |       분류       |
 |:---------------:|:----------------:|
 | 무신사 스탠다드 |     자체 PB      |
@@ -47,8 +45,6 @@ Report
 |   스타일쉐어    |   패션 공유 앱   |
 
 ## 경쟁사
-
-  
 
 |     브랜드      |       분류       |
 |:---------------:|:----------------:|
@@ -66,13 +62,21 @@ Report
 
   
 
-- 기업 분석을 통해 무신사가 갖는 독보적 BI를 확인하고, 경쟁사와 차별점과
-  패션 업계 트렌드를 중심으로 나아가야 할 방향과 전략을 제시하고자 함.
+- 기업 분석을 통해 무신사가 갖는 **독보적 BI**를 확인하고, 경쟁사와
+  **차별점**과 더불어 패션 업계 **트렌드**를 중심으로 **나아가야 할
+  방향**과 **전략**을 제시하고자 한다.
 
   
 
 <img src="report_files\figure-gfm\mermaid-figure-1.png"
 style="width:8in;height:5in" />
+
+<div>
+
+<img src="docs/report_files/figure-gfm/mermaid-figure-1.png"
+data-fig-align="center" width="800" />
+
+</div>
 
 # 데이터셋 수집 및 정제
 
@@ -132,6 +136,86 @@ musinsa_topic_tk %>%
 
 # 데이터 분석
 
+## 경쟁사 대비 차별점
+
+- 독보적인 온라인 플랫폼
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/musinsa_all-1.png"
+data-fig.extended="false" alt="무신사 총빈도" />
+<figcaption aria-hidden="true">무신사 총빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/vs-1.png"
+data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
+<figcaption aria-hidden="true">무신사, 패션 브랜드 상대빈도</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 자사는 **패션, 플랫폼, 온라인**등 비대면 온라인 키워드가 많이 노출된
+> 반면, 경쟁사는 **백화점, 고객, 서비스**등 오프라인 키워드가
+> 두드러졌으며, 상대빈도 역시 자사는 **온라인**, 경쟁사는 **오프라인**
+> 중심인 모습을 확인할 수 있었음.
+
+## 경쟁사 대비 차별점
+
+- 온라인을 통한 다양한 프로모션
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/musinsa_senti-1.png"
+data-fig.extended="false" alt="무신사 감정빈도" />
+<figcaption aria-hidden="true">무신사 감정빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/plat_pone-2.png"
+data-fig.extended="false" alt="패션 브랜드 긍정어 부정어" />
+<figcaption aria-hidden="true">패션 브랜드 긍정어 부정어</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과
+> **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면,
+> 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드
+> 중심으로 분석됨.
+
 ## SWOT 분석
 
 <div>
@@ -175,9 +259,11 @@ data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
 
 # 결론
 
-## 결론
+## 개선점
 
 - Get in bed
 - Count sheep
+
+## 전략
 
 # 감사합니다.
