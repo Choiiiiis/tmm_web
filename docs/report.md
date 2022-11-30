@@ -63,8 +63,8 @@ Report
   
 
 - 기업 분석을 통해 무신사가 갖는 **독보적 BI**를 확인하고, 경쟁사와
-  **차별점**과 더불어 패션 업계 **트렌드**를 중심으로 **나아가야 할
-  방향**과 **전략**을 제시하고자 한다.
+  **차별점**과 더불어 **위기 요인**에 대한 분석, 패션 업계 **트렌드**를
+  중심으로 **개선점**과 **전략**을 제시하고자 한다.
 
   
 
@@ -84,13 +84,13 @@ data-fig-align="center" width="800" />
 
   
 
-- 패션 브랜드 간 비교
-  - **무신사, 패션 브랜드** 키워드 검색.
+- **패션 플랫폼 간** 비교
+  - **무신사, 패션 플랫폼** 키워드 검색.
   - 2021.09.27 - 2022.09.27 무신사 2,056건, 패션 플랫폼 1,330건 확보.
 
   
 
-- 연간 비교
+- **연간** 비교
   - **무신사** 키워드 검색.
   - 2021.01.01 - 2021.10.04 간 1,413건, 2022.01.01 - 2022.10.04 간
     1,597건 확보.
@@ -99,14 +99,14 @@ data-fig-align="center" width="800" />
 
   
 
-- 트렌드 분석
+- **트렌드** 분석
   - **패션 트렌드** 키워드 검색.
   - 2021.01.01 - 2021.10.12 간 1,122건, 2022.01.01 - 2022.10.12 간
     1,148건 확보.
 
   
 
-- 위기 분석
+- **위기** 분석
   - **무신사, 패션 브랜드, 위기, 논란** 키워드 검색
   - 2021.01.01 - 2021.10.30 간 816건, 2022.01.01 - 2022.10.30 간 745건
     확보.
@@ -161,8 +161,8 @@ data-fig.extended="false" alt="무신사 총빈도" />
 data-layout-align="center">
 <figure>
 <img src="_site/brand_files/figure-html/vs-1.png"
-data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
-<figcaption aria-hidden="true">무신사, 패션 브랜드 상대빈도</figcaption>
+data-fig.extended="false" alt="무신사, 패션 플랫폼 상대빈도" />
+<figcaption aria-hidden="true">무신사, 패션 플랫폼 상대빈도</figcaption>
 </figure>
 </div></td>
 </tr>
@@ -171,8 +171,8 @@ data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
 
 </div>
 
-> 자사는 **패션, 플랫폼, 온라인**등 비대면 온라인 키워드가 많이 노출된
-> 반면, 경쟁사는 **백화점, 고객, 서비스**등 오프라인 키워드가
+> 자사는 **패션, 플랫폼, 온라인** 등 비대면 온라인 키워드가 많이 노출된
+> 반면, 경쟁사는 **백화점, 고객, 서비스** 등 오프라인 키워드가
 > 두드러졌으며, 상대빈도 역시 자사는 **온라인**, 경쟁사는 **오프라인**
 > 중심인 모습을 확인할 수 있었음.
 
@@ -201,8 +201,8 @@ data-fig.extended="false" alt="무신사 감정빈도" />
 data-layout-align="center">
 <figure>
 <img src="_site/brand_files/figure-html/plat_pone-2.png"
-data-fig.extended="false" alt="패션 브랜드 긍정어 부정어" />
-<figcaption aria-hidden="true">패션 브랜드 긍정어 부정어</figcaption>
+data-fig.extended="false" alt="패션 플랫폼 긍정어 부정어" />
+<figcaption aria-hidden="true">패션 플랫폼 긍정어 부정어</figcaption>
 </figure>
 </div></td>
 </tr>
@@ -213,10 +213,12 @@ data-fig.extended="false" alt="패션 브랜드 긍정어 부정어" />
 
 > 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과
 > **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면,
-> 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드
-> 중심으로 분석됨.
+> 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드가
+> 분석됨.
 
-## SWOT 분석
+## 경쟁사 대비 차별점
+
+- 자사 브랜드의 확장
 
 <div>
 
@@ -230,17 +232,17 @@ data-fig.extended="false" alt="패션 브랜드 긍정어 부정어" />
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
 <figure>
-<img src="_site/brand_files/figure-html/musinsa_all-1.png"
-data-fig.extended="false" alt="무신사 단어 총빈도" />
-<figcaption aria-hidden="true">무신사 단어 총빈도</figcaption>
+<img src="_site/brand_files/figure-html/musinsa_topic-1.png"
+data-fig.extended="false" alt="무신사 주제별 단어 확률 분포" />
+<figcaption aria-hidden="true">무신사 주제별 단어 확률 분포</figcaption>
 </figure>
 </div></td>
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
 <figure>
-<img src="_site/brand_files/figure-html/vs-1.png"
-data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
-<figcaption aria-hidden="true">무신사, 패션 브랜드 상대빈도</figcaption>
+<img src="_site/brand_files/figure-html/musinsa_word-1.png"
+data-fig.extended="false" alt="무신사 관련 보도 상위 주제어" />
+<figcaption aria-hidden="true">무신사 관련 보도 상위 주제어</figcaption>
 </figure>
 </div></td>
 </tr>
@@ -249,9 +251,312 @@ data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
 
 </div>
 
-> **강점**: 보유 고객 수, 자사 브랜드 **약점**: 명품 검수팀 미비
+> 무신사는 공격적으로 자사 브랜드를 확장하고 있으며, 자체 PB **무신사
+> 스탠다드**와 거래 중개 플랫폼 **솔드아웃** 등 다방면에서 유의미한
+> 인지도 제고를 확인할 수 있었음.
+
+## 위기 요인
+
+<div>
+
+<p>
+
+<img src="report_files\figure-gfm\dot-figure-1.png"
+style="width:7in;height:5in" data-fig-pos="H" />
+
+</p>
+
+</div>
+
+## 위기 요인
+
+- **성차별 논란**
+
+  - 한 소비자가 여성에게만 쿠폰을 지급한 것을 문제 삼아 항의했지만,
+    무신사 측이 별도의 설명 없이 60일 계정 정지 처분을 내리며 온라인을
+    통해 공론화 된 사건.
+
+  
+
+- 한국경제, 2021.03.09, 여자만 쿠폰 할인…’성차별 논란’에 무신사 대표
+  결국 사과[^1]
+
+> 최근 무신사는 여성 고객에게만 쿠폰을 지급하는 정책을 문제 삼은
+> 소비자의 계정을 60일 이용 정지해 논란이 일었다. 관련 소식이 SNS 등을
+> 통해 퍼지자 온라인에서는 ’무신사 불매운동’이 거론될 만큼 여론이 악화된
+> 바 있다.
+
+## 위기 요인
+
+- **성차별 논란**
+
+<div>
+
+<figure>
+<img src="_site/risk_files/figure-html/musinsa_21risk_all-1.png"
+data-fig-align="center" width="500" alt="21년 무신사 위기 총빈도" />
+<figcaption aria-hidden="true">21년 무신사 위기 총빈도</figcaption>
+</figure>
+
+</div>
+
+- 한 소비자가 여성에게만 쿠폰을 지급한 것을 문제 삼아 항의했지만, 무신사
+  측이 별도의 설명 없이 60일 계정 정지 처분을 내리며 온라인을 통해
+  공론화 된 사건.
+
+## 위기 요인
+
+- **혐오 제스처 논란**
+
+  - 21년 업계 전반에 논란이 된 사건으로 특정 성별을 비하하는 혐오
+    제스처가 브랜드 홍보물 곳곳에 포함되어 사회적 논란을 일으킨 사건.
+
+  
+
+- 국민일보, 2021.05.03, ‘남혐 손동작’ 논란 무신사 입장에 네티즌 뿔난
+  까닭[^2]
+
+> 해당 손 모양은 엄지와 검지를 제외한 나머지 손가락을 접은 모습인데,
+> 최근 네이버 웹툰 ‘바른 연애 길잡이’를 포함해 GS25 홍보물과 경찰 홍보물
+> 등 다양한 분야에서 사용되었다는 이유로 ‘남혐’ 논란을 빚고 있다. 일부
+> 커뮤니티에서는 남성 혐오를 이유로 불매 운동이 일어나기도 했다.
+
+## 위기 요인
+
+- **혐오 제스처 논란**
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/risk_files/figure-html/musinsa_21risk_senti-1.png"
+data-fig.extended="false" alt="21년 무신사 위기 감정빈도" />
+<figcaption aria-hidden="true">21년 무신사 위기 감정빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/risk_files/figure-html/vs-1.png"
+data-fig.extended="false" alt="연간 무신사 위기 상대빈도" />
+<figcaption aria-hidden="true">연간 무신사 위기 상대빈도</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과
+> **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면,
+> 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드
+> 중심으로 분석됨.
+
+## 위기 요인
+
+- **네이버 크림과 가품 공방**
+
+  - 네이버 크림과 벌어진 가품 논란으로 공방 끝에 결국 무신사 제품이
+    가품인 것으로 판명, 제품을 구매한 소비자에게 물품가의 200%를
+    배상금으로 지급한 사건.
+
+  
+
+- 한국경제, 2022.04.01, 무신사 vs 크림 짝퉁 논란 종지부…제조사 “무신사
+  가품 맞다”[^3]
+
+> 양사의 명운을 건 무신사와 크림의 공방전은 한달여간 팽팽하게
+> 지속됐으나, 이번 피어오브갓 본사의 검증 결과가 나오면서 크림쪽으로
+> 급격하게 기울었다. 지난해부터 명품 판매를 시작한 무신사는 이미지에 큰
+> 타격을 피할 수 없게 됐다.
+
+## 위기 요인
+
+- **네이버 크림과 가품 공방**
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/musinsa_senti-1.png"
+data-fig.extended="false" alt="무신사 감정빈도" />
+<figcaption aria-hidden="true">무신사 감정빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/brand_files/figure-html/plat_pone-2.png"
+data-fig.extended="false" alt="패션 플랫폼 긍정어 부정어" />
+<figcaption aria-hidden="true">패션 플랫폼 긍정어 부정어</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 자사는 온라인 플랫폼 특성으로 실시간 **인기** 상품에 대한 관심과
+> **할인, 이벤트, 혜택**과 같은 프로모션 중심 키워드가 자주 언급된 반면,
+> 경쟁사는 **만족, 편안, 고급**과 같이 오프라인 서비스 중심의 키워드
+> 중심으로 분석됨.
+
+## 패션 업계 트렌드
+
+<img src="report_files\figure-gfm\mermaid-figure-2.png"
+style="width:7in;height:5in" />
+
+## 패션 업계 트렌드
+
+- MZ세대의 가치소비 성향
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/vs-1.png"
+data-fig.extended="false" alt="21년, 22년 패션 트렌드 상대빈도" />
+<figcaption aria-hidden="true">21년, 22년 패션 트렌드
+상대빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/musinsa_21future_pone-2.png"
+data-fig.extended="false" alt="21년 패션 트렌드 긍정어 부정어" />
+<figcaption aria-hidden="true">21년 패션 트렌드 긍정어
+부정어</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> MZ세대가 주요 소비층으로 올라서면서 그들이 추구하는 가치소비에
+> 집중하는 모습을 보임. 자신이 지향하는 가치와 만족도를 기반으로
+> 합리적인 제품을 선택함에 있어서 **리사이클 패션**과 **라이선스 패션**
+> 부문이 새롭게 떠오르고 있음.
+
+## 패션 업계 트렌드
+
+- 명품 거래 활성화
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/musinsa_22future_all-1.png"
+data-fig.extended="false" alt="22년 패션 트렌드 총빈도" />
+<figcaption aria-hidden="true">22년 패션 트렌드 총빈도</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/musinsa_22future_senti-1.png"
+data-fig.extended="false" alt="22년 패션 트렌드 감정빈도" />
+<figcaption aria-hidden="true">22년 패션 트렌드 감정빈도</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 기존에 고가품은 주로 오프라인 시장에서 거래됐지만, 최근에는 온라인
+> 플랫폼을 통한 명품 거래량이 증가하는 추세임. 전문가 검수와 보증
+> 프로그램을 탑재한 플랫폼으로 **명품, 가치, 고급, 성공** 키워드가 자주
+> 언급됨.
+
+## 패션 업계 트렌드
+
+- 비대면 시장의 성장
+
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/musinsa_21future_topic-1.png"
+data-fig.extended="false" alt="21년 주제별 단어 확률 분포" />
+<figcaption aria-hidden="true">21년 주제별 단어 확률 분포</figcaption>
+</figure>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<figure>
+<img src="_site/future_files/figure-html/musinsa_22future_topic-1.png"
+data-fig.extended="false" alt="22년 주제별 단어 확률 분포" />
+<figcaption aria-hidden="true">22년 주제별 단어 확률 분포</figcaption>
+</figure>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+> 코로나 팬데믹은 세계 경제에 심각한 악영향을 미쳤지만, 비대면 시장은
+> 오히려 크게 성장하게 됨. 21년 **비대면 시장**과 **디지털 마케팅**에
+> 대한 관심이 22년 에는 **패션 플랫폼, 온라인 마케팅**으로 확장되며
+> 온라인 플랫폼에 대한 관심 또한 증가하고 있음.
 
 ## SWOT 분석
+
+  
+
+> **강점(Strength)**: 보유 고객 수, 자사 브랜드
+
+> **약점(Weakness)**: 명품 검수팀 미비
+
+> **기회(Opportunity)**: 비대면 시장 활성화, 소셜미디어 프로모션 대중화
+
+> **위협(Threat)**: 업계 전반의 가품 논란, 사용성, 불량
 
 ## STP분석
 
@@ -261,9 +566,44 @@ data-fig.extended="false" alt="무신사, 패션 브랜드 상대빈도" />
 
 ## 개선점
 
-- Get in bed
-- Count sheep
+1.  국내 최대 플랫폼으로써 고객 수에 강점이 있지만, 명품과 같이 전문적인
+    분야에서는 아직 소비자의 니즈를 충족시키지 못하고 있음.
+
+> 고가품에서 가장 중요한 것은 판매자의 신뢰도. 가품 논란에 휩싸인것
+> 자체가 브랜드 이미지에 상당한 타격을 미침.
+
+  
+
+2.  자체 PB의 영향력이 확대되고 있지만, 다양한 업체에서 입점해 판매하는
+    쇼핑몰이라는 점에서 전사적 품질 관리 미흡.
+
+> 일률적이지 않은 품질은 소비자로 하여금 플랫폼 전반에 대한 인식에
+> 부정적 영향을 미침.
+
+  
+
+3.  온라인 중심 플랫폼임에도 불구하고 직관적이지 못한 UI와 떨어지는
+    사용성.
+
+> 다양한 상품을 한 페이지에 노출시키다보니 로딩 속도 저하와 직관적이지
+> 못한 카테고리로 사용성이 현저하게 떨어짐.
 
 ## 전략
 
+- 전문 인력의 확충 및 소비자 신뢰 구축.
+- 협력사와 검수 시스템 구축을 통한 일관된 품질 제공.
+- UI와 더불어 UX 디자인의 전면적 재구축을 통한 소비자 사용성 개선.
+
 # 감사합니다.
+
+[^1]: 한국경제, 여자만 쿠폰 할인…’성차별 논란’에 무신사 대표 결국
+    사과\[웹사이트\]. (2022.11.30.). URL:
+    <https://www.hankyung.com/economy/article/202103096976g>
+
+[^2]: 국민일보, ‘남혐 손동작’ 논란 무신사 입장에 네티즌 뿔난
+    까닭\[웹사이트\]. (2022.11.30.). URL:
+    <https://news.kmib.co.kr/article/view.asp?arcid=0015805454>
+
+[^3]: 한국경제, 무신사 vs 크림 짝퉁 논란 종지부…제조사 “무신사 가품
+    맞다”\[웹사이트\]. (2022.11.30.). URL:
+    <https://www.hankyung.com/it/article/202204017740v>
